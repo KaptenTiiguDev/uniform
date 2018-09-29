@@ -7,7 +7,7 @@ def index():
     page_name="index"
     question = getQuestion()
     answers = getAnswers()
-    return render_template('%s.html' % page_name, question=question, answer=answer)
+    return render_template('%s.html' % page_name, question=question, answers=answers)
 
 def getData():
 	return "abc"
