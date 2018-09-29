@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import json
 from random import randint
 app = Flask(__name__, static_url_path='/static')
@@ -14,8 +14,11 @@ def index():
     answers = getAnswers()
     return render_template('%s.html' % page_name, question=question, answers=answers, version=version)
 
-def getData():
-	return "abc"
+@app.route("/injuries", methods=['POST'])
+def getInjuries():
+    #1 = bleeding, 2 = missing limb
+    fakeInjury = {'no':'a1','inj':1}
+    return jsonify(fakeInjury)
 
 def getQuestion():
     with open("data/questions.json", "r") as read_file:
