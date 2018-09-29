@@ -1,0 +1,14 @@
+
+{
+    "question": "Is the person breathing?",
+    "answers": [
+        {
+            "answer": "Yes",
+            "followup": {}
+        },
+        {
+            "answer": "No",
+            "followup": {}
+        }
+    ]
+}
