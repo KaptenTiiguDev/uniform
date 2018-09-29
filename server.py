@@ -5,25 +5,32 @@ from random import randint
 import serial #pyserial module required
 import thread
 
+serial_port = "COM5"
+
 right_arm_bleeding = False
 right_arm_removed = False
 
 #reading bluetooth data
 def read_sensor_data():
+    global serial_port
+
     global right_arm_bleeding
     global right_arm_removed
 
     import serial
 
-    serialConnection = serial.Serial(port='COM4')
-    serialConnection.flush()
+    try:
+        serialConnection = serial.Serial(port=serial_port)
+        serialConnection.flush()
 
-    while True:
-        line = serialConnection.readline()
-        if line:
-            data = line.replace('\n', ' ').replace('\r', '').split(",", 1)
-            right_arm_bleeding = data[0] == "1"
-            right_arm_removed = data[1] == "1"
+        while True:
+            line = serialConnection.readline()
+            if line:
+                data = line.replace('\n', ' ').replace('\r', '').split(",", 1)
+                right_arm_bleeding = data[0] == "1"
+                right_arm_removed = data[1] == "1"
+    except:
+        print "Bluetooth not connected on port " + serial_port
 
 try:
    thread.start_new_thread(read_sensor_data, ())
