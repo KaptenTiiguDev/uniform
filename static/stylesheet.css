@@ -1,5 +1,6 @@
 /*Stylesheet*/
 
+
 .questionAnswer{
     height:40px;
     background-color:#218838;
@@ -21,3 +22,15 @@
     font-size:30px;
     margin:50px 10px 10px 20px;
 }
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+#canvas{
+	background-image:url('human3.png');
+	background-repeat: no-repeat; 
+	margin:10px
+}
+
