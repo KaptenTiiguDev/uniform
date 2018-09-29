@@ -45,11 +45,16 @@ def index():
 @app.route("/injuries", methods=['POST'])
 def getInjuries():
     #1 = bleeding, 2 = missing limb
+    injuryType = None
     if right_arm_bleeding:
-    	fakeInjury = {'no': "armRight",'inj':1}
-    	return jsonify(fakeInjury)
-    else:
-    	return jsonify({'no':'armRight','inj':1})
+    	injuryType = {"no":"armRight","inj":1}
+    elif right_arm_removed:
+    	injuryType = {"no":"armRight","inj":2}
+    # elif left_arm_bleeding:
+    # 	injuryType = {"no":"armLeft","inj":1}
+    # elif left_arm_removed:
+    # 	injuryType = {"no":"armLeft","inj":2}
+    return jsonify(injuryType)
 
  #@app.route("/advice/", methods=['GET','POST'])
 @app.route("/advice/", methods=['GET','POST'])
