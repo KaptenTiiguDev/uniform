@@ -1,70 +1,33 @@
-
 {
-    "question": "Is the person breathing?",
+    "question": "Is the person bleeding?",
     "answers": [
         {
             "answer": "Yes",
             "followup": {
-                "question": "How many breaths in a minute",
+                "question": "Where is the person bleeding from?",
                 "answers": [
                     {
-                        "answer": "Less than 12",
-                        "followup": {
-                            "question": "Is the person bleeding?",
-                            "answers": [
-                                {
-                                    "answer": "Yes",
-                                    "followup": {
-                                        "question": "Where is the person bleeding from?",
-                                        "answers": [
-                                            {
-                                                "answer": "Chest",
-                                                "followup": {}
-                                            },
-                                            {
-                                                "answer": "Stomach",
-                                                "followup": {}
-                                            },
-                                            {
-                                                "answer": "Right arm",
-                                                "followup": {}
-                                            },
-                                            {
-                                                "answer": "Left arm",
-                                                "followup": {}
-                                            },
-                                            {
-                                                "answer": "Right leg",
-                                                "followup": {}
-                                            },
-                                            {
-                                                "answer": "Left leg",
-                                                "followup": {}
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "answer": "No",
-                                    "followup": {}
-                                }
-                            ]
-                        }
+                        "answer": "Right arm",
+                        "solution": "Put on a tourniquet and evacuate"
                     },
                     {
-                        "answer": "12 to 18",
-                        "followup": {}
+                        "answer": "Left arm",
+                        "solution": "Put on a tourniquet and evacuate"
                     },
                     {
-                        "answer": "More than 18",
-                        "followup": {}
+                        "answer": "Right leg",
+                        "solution": "Put on a tourniquet and evacuate"
+                    },
+                    {
+                        "answer": "Left leg",
+                        "solution": "Put on a tourniquet and evacuate"
                     }
                 ]
             }
         },
         {
             "answer": "No",
-            "followup": {}
+            "solution": "Evacuate"
         }
     ]
 }
