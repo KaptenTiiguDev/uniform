@@ -26,16 +26,20 @@ def read_sensor_data():
         while True:
             line = serialConnection.readline()
             if line:
+                #print(line)
                 data = line.replace('\n', ' ').replace('\r', '').split(",", 1)
                 right_arm_bleeding = data[0] == "1"
                 right_arm_removed = data[1] == "1"
+
+                #print("bleed: ", right_arm_bleeding)
+                #print("removed: ", right_arm_removed)
     except:
-        print "Bluetooth not connected on port " + serial_port
+        print("Bluetooth not connected on port ", serial_port)
 
 try:
    thread.start_new_thread(read_sensor_data, ())
 except:
-   print "Error: unable to start thread"
+   print("Error: unable to start thread")
 
 app = Flask(__name__, static_url_path='/static')
 questionsFile = "data/questions.json"
@@ -51,10 +55,13 @@ def index():
 
 @app.route("/injuries", methods=['POST'])
 def getInjuries():
+    global right_arm_bleeding
     #1 = bleeding, 2 = missing limb
     injuryType = None
     if right_arm_bleeding:
-    	injuryType = {"no":"armRight","inj":1}
+    	injuryType = {"no":"armRight","inj":1, "something": 2}
+    else:
+        injuryType = {}
     #elif right_arm_removed:
     	#injuryType = {"no":"armRight","inj":2}
     # elif left_arm_bleeding:

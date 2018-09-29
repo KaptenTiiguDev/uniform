@@ -38,11 +38,9 @@ function updateData() {
                 hideAdvice();
 
             } else {
-                if (data.no != activeInjury) {
-                    showInjury(data);
-                    getAdvice(data);
-                    activeInjury = data.no;
-                }
+                showInjury(data);
+                getAdvice(data);
+                activeInjury = data.no;
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -52,12 +50,10 @@ function updateData() {
 
 }
 
-var activeInjury = null;
-
 $(document).ready(function(){
 
     setInterval(function(){
         updateData();
-    }, 1000)
+    }, 100)
 
 });
