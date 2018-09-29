@@ -36,21 +36,19 @@
 </divi>
 </body>
 <script>
-    function getMemberStatus(){
+    //function getMemberStatus(){
         $.ajax({
-            type:"GET", 
-            url: "http://localhost:5000/members", 
+            type:"POST", 
+            url: "http://localhost:5000/injuries", 
             success: function(data) {
-                alert(data);
-                return data
+                alert(JSON.stringify(data));
             }, 
             error: function(jqXHR, textStatus, errorThrown) {
                                     //alert(jqXHR.status);
             }
         });
-    }
+    //}
 
-    t="";
 
     var canvas = document.getElementById("canvas");
     var context = canvas.getContext("2d");
