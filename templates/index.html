@@ -1,102 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="robots" content="noarchive">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-    <title>Health monitoring uniform</title>
-    <link rel="stylesheet" type="text/css" href="../static/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/stylesheet.css?v={{version}}">
-    <script src="../static/jquery.js"></script>
-    <script src="../static/bootstrap.min.js"></script>
-    <script src="../static/test.js?v={{version}}"></script>
-</head>
-<body>
-<divi class="container row" style="padding-top:2%">
-    <div class="firstBlock col-lg-6">
-        <div class="questions row">
-            <div class="question col-md-10">{{question}}</div>
-            {% for answer in answers %}
-            <div class="questionAnswer col-md-3">{{answer}}</div>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="secondBlock col-lg-6">
-        <div class="row">
-            <div id="squad" class="squadButtons col-lg-12 pull-right">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="../static/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/style.css?v={{version}}">
+        <title>Health Monitoring Uniform</title>
+    </head>
+    <body>
+        <div class="container-fluid">
 
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <h1>Health Monitoring Uniform</h1>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+
+                    <div id="body-figure-container">
+                        <img src="../static/body2.png" id="body-figure" alt="">
+
+                        <div class="body-spot" id="body-spot-head"></div>
+                        <div class="body-spot" id="body-spot-chest"></div>
+                        <div class="body-spot" id="body-spot-stomach"></div>
+
+                        <div class="body-spot" id="body-spot-armRight"></div>
+                        <div class="body-spot" id="body-spot-armLeft"></div>
+
+                        <div class="body-spot" id="body-spot-legRight"></div>
+                        <div class="body-spot" id="body-spot-legLeft"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center" id="injury-info-container">
+                <div class="col-md-6 alert alert-secondary">
+                    <p class="lead" id="injury-info-text"></p>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="interface col-lg-12">
-                <canvas id="canvas" class="center" width="400px" height="800px"></canvas>
-            </div>
-        </div>
-    </div>
-</divi>
-</body>
-<script>
-    //function getMemberStatus(){
-        $.ajax({
-            type:"POST", 
-            url: "http://localhost:5000/injuries", 
-            success: function(data) {
-                //alert(JSON.stringify(data));
-            }, 
-            error: function(jqXHR, textStatus, errorThrown) {
-                                    //alert(jqXHR.status);
-            }
-        });
-    //}
 
-
-    var canvas = document.getElementById("canvas");
-    var context = canvas.getContext("2d");
-    function drawBoard(){
-        //x,y
-        context.moveTo(0,0);
-        context.lineTo(400,0);
-
-        context.moveTo(0,150);
-        context.lineTo(400,150);
-
-        context.moveTo(0,250);
-        context.lineTo(400,250);
-
-        context.moveTo(0,350);
-        context.lineTo(400,350);
-
-        context.moveTo(0,470);
-        context.lineTo(400,470);
-
-        context.moveTo(0,0);
-        context.lineTo(0,700);
-        context.lineTo(0,400);
-
-        context.moveTo(400,0);
-        context.lineTo(400,700);
-
-        context.strokeStyle = "#42444";
-        context.stroke();
-    }
-
-    drawBoard();
-    var i;
-    var squad = document.getElementById('squad');
-    var canvas = document.getElementById('squad');
-    html = []
-    members = fakeData = [{'no':1,'status':1},{'no':2,'status':1},{'no':3,'status':0},{'no':4,'status':1},{'no':5,'status':1},{'no':6,'status':1},{'no':7,'status':1},{'no':8,'status':1}]//getMemberStatus();
-    for (i = 0; i < members.length; i++) { 
-        st = members[i]['status'];
-        if(st){
-            classSt = "btn btn-success"
-        }
-        else{
-            classSt = "btn btn-danger"
-        }
-        html.push('<button type="button" class="'+classSt+'">'+members[i]['no']+'</button>') 
-    }
-    squad.innerHTML = html.join("");
-                    
-</script>
+        <script src="../static/jquery.js"></script>
+        <script src="../static/injuries.js?v={{version}}"></script>
+    </body>
 </html>
