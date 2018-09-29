@@ -16,7 +16,7 @@ def index():
 @app.route("/injuries", methods=['POST'])
 def getInjuries():
     #1 = bleeding, 2 = missing limb
-    fakeInjury = {'no':'a1','inj':1}
+    fakeInjury = {'no':'armRight','inj':1}
     return jsonify(fakeInjury)
 
  #@app.route("/advice/", methods=['GET','POST'])
