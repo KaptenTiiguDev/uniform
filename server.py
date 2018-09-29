@@ -42,7 +42,7 @@ def getAnswers():
 @app.route('/', methods=['GET', 'POST'])
 def my_form_post():
     print("here")
-    print(request.)
+    print(request.data)
     return ""
  
 if __name__ == "__main__":
