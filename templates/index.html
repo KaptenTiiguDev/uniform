@@ -2,19 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="robots" content="noarchive">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
     <title>Health monitoring uniform</title>
-    <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/stylesheet.css">
-    <script src="/static/jquery.js"></script>
-    <script src="/static/bootstrap.min.js"></script>
-    <script src="/static/test.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/stylesheet.css?v={{version}}">
+    <script src="../static/jquery.js"></script>
+    <script src="../static/bootstrap.min.js"></script>
+    <script src="../static/test.js?v={{version}}"></script>
 </head>
 <body>
 <divi class="container row" style="padding-top:2%">
     <div class="firstBlock col-lg-6">
-        <div class="row">
-            <div class="questions col-md-12">Questions</div>
-            <div class="answers col-md-12">Answers</div>
+        <div class="questions row">
+            <div class="question col-md-10">{{question}}</div>
+            {% for answer in answers %}
+            <div class="questionAnswer col-md-3">{{answer}}</div>
+            {% endfor %}
         </div>
     </div>
     <div class="secondBlock col-lg-6">
