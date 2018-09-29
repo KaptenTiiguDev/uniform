@@ -3,13 +3,14 @@
 
 .questionAnswer{
     height:40px;
-    background-color:#218838;
+    background-color:#28A745;
     border-radius: 40px;
     width: 50px;
     margin:20px 10px 10px 20px;
     text-align: center;
     vertical-align: middle;
     line-height: 40px;
+    color:white;
 }
 
 .questionAnswer:hover{ cursor:pointer; }
