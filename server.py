@@ -55,8 +55,8 @@ def getInjuries():
     injuryType = None
     if right_arm_bleeding:
     	injuryType = {"no":"armRight","inj":1}
-    elif right_arm_removed:
-    	injuryType = {"no":"armRight","inj":2}
+    #elif right_arm_removed:
+    	#injuryType = {"no":"armRight","inj":2}
     # elif left_arm_bleeding:
     # 	injuryType = {"no":"armLeft","inj":1}
     # elif left_arm_removed:
