@@ -1,2 +1,11 @@
 /*Stylesheet*/
-
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+#canvas{
+	background-image:url('human3.png');
+	background-repeat: no-repeat; 
+	margin:10px
+}
