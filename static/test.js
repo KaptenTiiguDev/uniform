@@ -7,7 +7,7 @@ $(document).ready(function()
         function()
         {
             console.log("Hey");
-            var x ="test"
+            var x ={ "name":"John", "age":30, "car":null }
             sendDataToBackend(x);
             return false;
         });
