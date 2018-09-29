@@ -20,6 +20,17 @@ def getInjuries():
     fakeInjury = {'no':'a1','inj':1}
     return jsonify(fakeInjury)
 
+ #@app.route("/advice/", methods=['GET','POST'])
+@app.route("/advice/", methods=['GET','POST'])
+def getAdvice():
+ 	arg = json.loads(request.args.get('st'))
+ 	no = arg['no']
+ 	inj = arg['inj']
+ 	with open("data/advice.json", "r") as read_file:
+ 		data = json.load(read_file)
+ 		return data[no][inj]
+ 	return None
+
 def getQuestion():
     with open("data/questions.json", "r") as read_file:
         data = json.load(read_file)

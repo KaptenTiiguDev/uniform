@@ -13,13 +13,13 @@
 </head>
 <body>
 <divi class="container row" style="padding-top:2%">
-    <div class="firstBlock col-lg-6">
-        <div class="questions row">
+    <div id="advice" class="firstBlock col-lg-6">
+<!--         <div class="questions row" style="display:none;">
             <div class="question col-md-10">{{question}}</div>
             {% for answer in answers %}
             <div class="questionAnswer col-md-3">{{answer}}</div>
             {% endfor %}
-        </div>
+        </div> -->
     </div>
     <div class="secondBlock col-lg-6">
         <div class="row">
@@ -36,18 +36,29 @@
 </divi>
 </body>
 <script>
-    //function getMemberStatus(){
+    function getMedAdvice(st){
         $.ajax({
             type:"POST", 
-            url: "http://localhost:5000/injuries", 
+            url: "http://localhost:5000/advice/?st="+JSON.stringify(st), 
             success: function(data) {
-                //alert(JSON.stringify(data));
+                var advice = document.getElementById("advice");
+                advice.innerHTML = '<p>' + data + '</p>';
             }, 
             error: function(jqXHR, textStatus, errorThrown) {
                                     //alert(jqXHR.status);
             }
         });
-    //}
+    }
+    $.ajax({
+            type:"POST", 
+            url: "http://localhost:5000/injuries", 
+            success: function(data) {
+                advice = getMedAdvice(data);
+            }, 
+            error: function(jqXHR, textStatus, errorThrown) {
+                                    //alert(jqXHR.status);
+            }
+    });
 
 
     var canvas = document.getElementById("canvas");
