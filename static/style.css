@@ -1,0 +1,44 @@
+#body-figure-container {
+    position: relative;
+    width: 235px;
+    height: 414px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#body-figure {
+    position: absolute;
+    width: 235px;
+    height: 414px;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.body-spot {
+    position: absolute;
+    z-index: 200;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: #c00;
+    display: none;
+}
+
+#injury-info-container {
+    display: none;
+}
+
+#body-spot-head     { top: 25px; left: 100px; }
+#body-spot-chest    { top: 100px; left: 100px; }
+#body-spot-stomach  { top: 170px; left: 100px; }
+
+#body-spot-armRight { top: 150px; left: 50px; }
+#body-spot-armLeft  { top: 150px; left: 150px; }
+#body-spot-legRight { top: 266px; left: 80px; }
+#body-spot-legLeft  { top: 266px; left: 120px; }
+
+.row-with-margins {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
