@@ -4,7 +4,63 @@
     "answers": [
         {
             "answer": "Yes",
-            "followup": {}
+            "followup": {
+                "question": "How many breaths in a minute",
+                "answers": [
+                    {
+                        "answer": "Less than 12",
+                        "followup": {
+                            "question": "Is the person bleeding?",
+                            "answers": [
+                                {
+                                    "answer": "Yes",
+                                    "followup": {
+                                        "question": "Where is the person bleeding from?",
+                                        "answers": [
+                                            {
+                                                "answer": "Chest",
+                                                "followup": {}
+                                            },
+                                            {
+                                                "answer": "Stomach",
+                                                "followup": {}
+                                            },
+                                            {
+                                                "answer": "Right arm",
+                                                "followup": {}
+                                            },
+                                            {
+                                                "answer": "Left arm",
+                                                "followup": {}
+                                            },
+                                            {
+                                                "answer": "Right leg",
+                                                "followup": {}
+                                            },
+                                            {
+                                                "answer": "Left leg",
+                                                "followup": {}
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "answer": "No",
+                                    "followup": {}
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "answer": "12 to 18",
+                        "followup": {}
+                    },
+                    {
+                        "answer": "More than 18",
+                        "followup": {}
+                    }
+                ]
+            }
         },
         {
             "answer": "No",
