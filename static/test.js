@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-    $SCRIPT_ROOT = '';
+    $SCRIPT_ROOT = 'http://localhost:5000/getAnswer/';
 
     $( "body" ).find( ".questionAnswer" ).click(
 
@@ -13,7 +13,8 @@ $(document).ready(function()
         });
 
     function sendDataToBackend(x) {
-        $.post( $SCRIPT_ROOT, {
+        console.log(x)
+        $.post( $SCRIPT_ROOT+x, {
             data: x
         });
     }

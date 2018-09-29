@@ -39,10 +39,10 @@ def getFollowup(answer):
 def getAnswers():
     return ["Yes","No"]
     
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/getAnswer/', methods=['GET', 'POST'])
 def my_form_post():
-    print("here")
-    print(request.data)
+    qr = request.args.get('answ')
+    print(qr)
     return ""
  
 if __name__ == "__main__":
