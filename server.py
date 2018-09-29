@@ -8,10 +8,10 @@ questionsFile = "data/questions.json"
 def index():
     page_name="index"
     version = randint(0,999999)
-    question = getQuestion()
+    #question = getQuestion()
     #question = getFollowup(0)
-    answers = getAnswers()
-    return render_template('%s.html' % page_name, question=question, answers=answers, version=version)
+    #answers = getAnswers()
+    return render_template('%s.html' % page_name, version=version)
 
 @app.route("/injuries", methods=['POST'])
 def getInjuries():
