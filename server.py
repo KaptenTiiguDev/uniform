@@ -5,7 +5,7 @@ from random import randint
 import serial #pyserial module required
 import thread
 
-serial_port = "COM4"
+serial_port = "/dev/rfcomm2"
 
 
 class BodyPartInjuryDetector:
@@ -30,6 +30,7 @@ class BodyPartInjuryDetector:
 right_arm = BodyPartInjuryDetector('armRight')
 left_arm = BodyPartInjuryDetector('armLeft')
 
+
 # reading bluetooth data
 def read_sensor_data():
 
@@ -43,6 +44,7 @@ def read_sensor_data():
                 data = line.replace('\n', ' ').replace('\r', '').split(",", 1)
                 right_arm_bleeding = data[0] == "1"
                 right_arm_removed = data[1] == "1 "
+                left_arm.update_values(right_arm_bleeding,right_arm_removed)
                 right_arm.update_values(right_arm_bleeding, right_arm_removed)
     except:
         print("Bluetooth not connected on port ", serial_port)
@@ -61,10 +63,9 @@ def index():
     version = randint(0, 999999)
     return render_template('%s.html' % page_name, version=version)
 
-
 @app.route("/injuries", methods=['GET', 'POST'])
 def get_injuries():
-    return jsonify(left_arm.get_json_values())
+    return jsonify(right_arm.get_json_values())
 
 
 @app.route("/advice/", methods=['GET','POST'])
