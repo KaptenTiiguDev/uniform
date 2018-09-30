@@ -72,20 +72,25 @@ function updateData() {
                 }
 
             } else {
-                if (data.inj == 2) {
-                    hideInjury();
-                    if (!interval) {
-                        showLeftLimbMissing();
-                    }
+                if (!latestInjury && resetCounter > 0) {
+                    resetCounter -= 1;
                 } else {
-                    resetPerson();
-                    showInjury(data);
+                    resetCounter = 2;
+                    if (data.inj == 2) {
+                        hideInjury();
+                        if (!interval) {
+                            showLeftLimbMissing();
+                        }
+                    } else {
+                        resetPerson();
+                        showInjury(data);
+                    }
+                    latestInjury = data.inj;
+                    // getAdvice(data);
+                    $('#injury-info-text').html(data.advice);
+                    $('#injury-info-container').css('display', 'flex'); //show();
+                    activeInjury = data.no;
                 }
-                latestInjury = data.inj;
-                // getAdvice(data);
-                $('#injury-info-text').html(data.advice);
-                $('#injury-info-container').css('display', 'flex'); //show();
-                activeInjury = data.no;
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
