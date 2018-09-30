@@ -19,7 +19,7 @@ function showInjury(data) {
 function showLeftLimbMissing() {
     interval = setInterval(function() {
         limbVisualIndex = !limbVisualIndex;
-        var imgUrl = !limbVisualIndex ? "../static/body2.png" : "../static/body_nohand.png";
+        var imgUrl = !limbVisualIndex ? "../static/body_red_hand.png" : "../static/body_nohand.png";
         $("#body-figure").attr("src",imgUrl);
     }, 400);
 }
