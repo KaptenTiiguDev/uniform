@@ -5,7 +5,7 @@ from random import randint
 import serial #pyserial module required
 import thread
 
-serial_port = "COM5"
+serial_port = "COM4"
 
 right_arm_bleeding = False
 right_arm_removed = False
@@ -28,14 +28,16 @@ def read_sensor_data():
             if line:
                 #print(line)
                 data = line.replace('\n', ' ').replace('\r', '').split(",", 1)
+                #print(data)
                 right_arm_bleeding = data[0] == "1"
-                right_arm_removed = data[1] == "1"
+                right_arm_removed = data[1] == "1 "
+                #print(right_arm_removed)
 
                 #print("bleed: ", right_arm_bleeding)
                 #print("removed: ", right_arm_removed)
     except:
         print("Bluetooth not connected on port ", serial_port)
-
+#read_sensor_data()
 try:
    thread.start_new_thread(read_sensor_data, ())
 except:
@@ -55,15 +57,18 @@ def index():
 
 @app.route("/injuries", methods=['POST'])
 def getInjuries():
+    
     global right_arm_bleeding
     #1 = bleeding, 2 = missing limb
     injuryType = None
+    print(right_arm_bleeding)
     if right_arm_bleeding:
-    	injuryType = {"no":"armRight","inj":1, "something": 2}
+        injuryType = {"no":"armRight","inj":1, "something": 2}
+    elif right_arm_removed:
+    	injuryType = {"no":"armRight","inj":2}
     else:
         injuryType = {}
-    #elif right_arm_removed:
-    	#injuryType = {"no":"armRight","inj":2}
+    
     # elif left_arm_bleeding:
     # 	injuryType = {"no":"armLeft","inj":1}
     # elif left_arm_removed:
