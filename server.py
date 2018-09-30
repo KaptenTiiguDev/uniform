@@ -7,32 +7,43 @@ import thread
 
 serial_port = "COM5"
 
-right_arm_bleeding = False
-right_arm_removed = False
 
-#reading bluetooth data
+class BodyPartInjuryDetector:
+    def __init__(self, body_part):
+        self.is_bleeding = False
+        self.is_removed = False
+        self.body_part = body_part
+
+    def update_values(self, is_bleeding, is_removed):
+        self.is_bleeding = is_bleeding
+        self.is_removed = is_removed
+
+    def get_json_values(self):
+        if self.is_bleeding or self.is_removed:
+            return {
+                'no': self.body_part,
+                'inj': 2 if self.is_removed else 1,
+            }
+        return {}
+
+
+right_arm = BodyPartInjuryDetector('rightArm')
+
+
+# reading bluetooth data
 def read_sensor_data():
-    global serial_port
-
-    global right_arm_bleeding
-    global right_arm_removed
-
-    import serial
 
     try:
-        serialConnection = serial.Serial(port=serial_port)
-        serialConnection.flush()
+        serial_connection = serial.Serial(port=serial_port)
+        serial_connection.flush()
 
         while True:
-            line = serialConnection.readline()
+            line = serial_connection.readline()
             if line:
-                #print(line)
                 data = line.replace('\n', ' ').replace('\r', '').split(",", 1)
                 right_arm_bleeding = data[0] == "1"
                 right_arm_removed = data[1] == "1"
-
-                #print("bleed: ", right_arm_bleeding)
-                #print("removed: ", right_arm_removed)
+                right_arm.update_values(right_arm_bleeding, right_arm_removed)
     except:
         print("Bluetooth not connected on port ", serial_port)
 
@@ -46,33 +57,18 @@ questionsFile = "data/questions.json"
 
 @app.route("/")
 def index():
-    page_name="index"
-    version = randint(0,999999)
-    #question = getQuestion()
-    #question = getFollowup(0)
-    #answers = getAnswers()
+    page_name = "index"
+    version = randint(0, 999999)
     return render_template('%s.html' % page_name, version=version)
 
-@app.route("/injuries", methods=['POST'])
-def getInjuries():
-    global right_arm_bleeding
-    #1 = bleeding, 2 = missing limb
-    injuryType = None
-    if right_arm_bleeding:
-    	injuryType = {"no":"armRight","inj":1, "something": 2}
-    else:
-        injuryType = {}
-    #elif right_arm_removed:
-    	#injuryType = {"no":"armRight","inj":2}
-    # elif left_arm_bleeding:
-    # 	injuryType = {"no":"armLeft","inj":1}
-    # elif left_arm_removed:
-    # 	injuryType = {"no":"armLeft","inj":2}
-    return jsonify(injuryType)
 
- #@app.route("/advice/", methods=['GET','POST'])
+@app.route("/injuries", methods=['GET', 'POST'])
+def get_injuries():
+    return jsonify(right_arm.get_json_values())
+
+
 @app.route("/advice/", methods=['GET','POST'])
-def getAdvice():
+def get_advice():
  	arg = json.loads(request.args.get('st'))
  	no = arg['no']
  	inj = arg['inj']
