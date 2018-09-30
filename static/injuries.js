@@ -1,4 +1,6 @@
-
+var limbMissing = false;
+var interval = null;
+var limbVisualIndex = false;
 function hideInjury() {
     $('.body-spot').hide();
 }
@@ -10,6 +12,24 @@ function hideAdvice() {
 
 function showInjury(data) {
     $('#body-spot-' + data.no).show();
+}
+
+function showLeftLimbMissing() {
+    interval = setInterval(function() {
+        limbVisualIndex = !limbVisualIndex;
+        var imgUrl = !limbVisualIndex ? "../static/body2.png" : "../static/body_nohand.png";
+        $("#body-figure").attr("src",imgUrl);
+    }, 400);
+}
+
+function resetPerson() {
+    limbMissing = false;
+    limbVisualIndex = 0;
+    if (interval) {
+        clearInterval(interval);
+        interval = null;
+    }
+    $("#body-figure").attr("src","../static/body2.png");
 }
 
 function getAdvice(data) {
@@ -36,10 +56,20 @@ function updateData() {
             if ($.isEmptyObject(data)) {
                 hideInjury();
                 hideAdvice();
-
+                resetPerson();
             } else {
-                showInjury(data);
-                getAdvice(data);
+                if (data.inj == 2) {
+                    hideInjury();
+                    if (!interval) {
+                        showLeftLimbMissing();
+                    }
+                } else {
+                    resetPerson();
+                    showInjury(data);
+                }
+                // getAdvice(data);
+                $('#injury-info-text').html(data.advice);
+                $('#injury-info-container').css('display', 'flex'); //show();
                 activeInjury = data.no;
             }
         },
@@ -54,6 +84,6 @@ $(document).ready(function(){
 
     setInterval(function(){
         updateData();
-    }, 100)
+    }, 200)
 
 });

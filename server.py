@@ -23,6 +23,7 @@ class BodyPartInjuryDetector:
             return {
                 'no': self.body_part,
                 'inj': 2 if self.is_removed else 1,
+                'advice': 'Put on a tourniquet and evacuate.' if self.is_removed else 'Put a bandage on.'
             }
         return {}
 
