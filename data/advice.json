@@ -1,4 +1,4 @@
 {
-    "armRight": ["","Put on a tourniquet and evacuate.","Leave to die."],
-    "armLeft":["","Put on a tourniquet and evacuate.","Leave to die."]
+    "armRight": ["","Put a bandage on.","Put on a tourniquet and evacuate."],
+    "armLeft":["","Put a bandage on.","Put on a tourniquet and evacuate."]
 }
