@@ -1,111 +1,110 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <link rel="stylesheet" href="../static/bootstrap.min.css">
-        <link rel="stylesheet" href="../static/style.css?v={{version}}">
-        <title>Bloodsweep</title>
-    </head>
-    <body>
-        <div class="container-fluid m-3">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css?v={{version}}">
+    <title>Bloodsweep</title>
+</head>
+<body>
+<div class="container">
 
-            <div class="row justify-content-center">
-                <div class="col-md-10 pull-center alert alert-success">
-                    <h1 class="font-weight-bold">B L O O D S W E E P</h1>
+    <header>
+        <h1>Bloodsweep</h1>
+    </header>
+
+
+
+
+    <div class="row justify-content-center">
+            <div class="col-md-4 alert text-white">
+                <div class="row">
+                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
+                    <div class="col-md-2 pull-right"></div>
+                    <div class="col-md-8 pull-left lead">Sander</div>
                 </div>
-           </div>
-
-            <div class="row justify-content-center">
-                <div class="col-md-4 text-right p-0" style="height:100%;">
-                    <div class="col-md-12 alert alert-secondary text-white">
-<div class="row">
-<div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-<div class="col-md-2 pull-right"></div>
-<div class="col-md-8 pull-left lead">Sander</div>
-</div>     
-<hr>
-<div class="row">
-<div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-<div class="col-md-2 pull-right"></div>
-<div class="col-md-8 pull-left lead">Antonina</div>
-</div>     
-<hr>
-<div class="row">
-<div class="col-md-2 pull-right"></div>
-<div class="col-md-2 pull-right"></div>
-<div class="col-md-8 pull-left lead">Anatoli</div>
-</div>     
-<hr>
-<div class="row">
-<div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-<div class="col-md-2 pull-right"></div>
-<div class="col-md-8 pull-left lead">Ivars</div>
-</div>     
-<hr>
-<div class="row">
-<div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-<div class="col-md-2 pull-right"></div>
-<div class="col-md-8 pull-left lead">Kevin</div>
-</div>     
-<hr>
-<div class="row">
-<div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-<div class="col-md-2 pull-right"></div>
-<div class="col-md-8 pull-left lead">Hendrik</div>
-</div>     
-<hr>
-<div class="row">
-<div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-<div class="col-md-2 pull-right"></div>
-<div class="col-md-8 pull-left lead">Ivo</div>
-</div>     
-<hr>
-<div class="row">
-<div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-<div class="col-md-2 pull-right"></div>
-<div class="col-md-8 pull-left lead">Nora</div>
-</div>     
-<hr>
-<div class="row">
-<div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-<div class="col-md-2 pull-right"></div>
-<div class="col-md-8 pull-left lead">Karlis</div>
-</div> 
-
-                    </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
+                    <div class="col-md-2 pull-right"></div>
+                    <div class="col-md-8 pull-left lead">Antonina</div>
                 </div>
-                <div class="col-md-6">
-
-                    <div id="body-figure-container">
-                        <img src="../static/body2.png" id="body-figure" alt="">
-
-                        <div class="body-spot" id="body-spot-head"></div>
-                        <div class="body-spot" id="body-spot-chest"></div>
-                        <div class="body-spot" id="body-spot-stomach"></div>
-
-                        <div class="body-spot" id="body-spot-armRight"></div>
-                        <div class="body-spot" id="body-spot-armLeft"></div>
-
-                        <div class="body-spot" id="body-spot-legRight"></div>
-                        <div class="body-spot" id="body-spot-legLeft"></div>
-                    </div>
-                    <div class="alert alert-info text-center" id="injury-info-container">
-                        <p class="lead" id="injury-info-text" style="font-weight: 580;font-size:2em;"></p>
-                    </div>
+                <hr>
+                <div class="row selected">
+                    <div class="col-md-2 pull-right"></div>
+                    <div class="col-md-2 pull-right"></div>
+                    <div class="col-md-8 pull-left lead">Anatoli</div>
                 </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
+                    <div class="col-md-2 pull-right"></div>
+                    <div class="col-md-8 pull-left lead">Ivars</div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
+                    <div class="col-md-2 pull-right"></div>
+                    <div class="col-md-8 pull-left lead">Kevin</div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
+                    <div class="col-md-2 pull-right"></div>
+                    <div class="col-md-8 pull-left lead">Hendrik</div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
+                    <div class="col-md-2 pull-right"></div>
+                    <div class="col-md-8 pull-left lead">Ivo</div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
+                    <div class="col-md-2 pull-right"></div>
+                    <div class="col-md-8 pull-left lead">Nora</div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
+                    <div class="col-md-2 pull-right"></div>
+                    <div class="col-md-8 pull-left lead">Karlis</div>
+                </div>
+
             </div>
+        <div class="col-md-8">
 
+            <div id="body-figure-container">
+                <img src="../static/body2.png" id="body-figure" alt="">
 
-<!--             <div class="row justify-content-center" id="injury-info-container">
-                <div class="col-md-6 alert alert-secondary">
-                    <p class="lead" id="injury-info-text"></p>
-                </div>
-            </div> -->
+                <div class="body-spot" id="body-spot-head"></div>
+                <div class="body-spot" id="body-spot-chest"></div>
+                <div class="body-spot" id="body-spot-stomach"></div>
+
+                <div class="body-spot" id="body-spot-armRight"></div>
+                <div class="body-spot" id="body-spot-armLeft"></div>
+
+                <div class="body-spot" id="body-spot-legRight"></div>
+                <div class="body-spot" id="body-spot-legLeft"></div>
+            </div>
+            <div class="alert alert-info text-center" id="injury-info-container">
+                <p class="lead" id="injury-info-text" style="font-weight: 580;font-size:2em;"></p>
+            </div>
         </div>
+    </div>
 
-        <script src="../static/jquery.js"></script>
-        <script src="../static/injuries.js?v={{version}}"></script>
-    </body>
+
+    <!--             <div class="row justify-content-center" id="injury-info-container">
+                    <div class="col-md-6 alert alert-secondary">
+                        <p class="lead" id="injury-info-text"></p>
+                    </div>
+                </div> -->
+</div>
+
+<script src="../static/jquery.js"></script>
+<script src="../static/injuries.js?v={{version}}"></script>
+</body>
 </html>

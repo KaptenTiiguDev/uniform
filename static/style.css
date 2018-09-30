@@ -1,3 +1,38 @@
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('../fonts/subset-HelveticaNeueBold.woff') format('woff'),
+    url('../fonts/subset-HelveticaNeueBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('../fonts/subset-HelveticaNeueLight.woff') format('woff'),
+    url('../fonts/subset-HelveticaNeueLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    font-family: 'HelveticaNeue', sans-serif;
+    color: #333;
+
+}
+
+
+header {
+    margin: 40px 0;
+    font-weight: bold;
+    margin-left: -15px;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+
+
 #body-figure-container {
     position: relative;
     width: 235px;
@@ -58,9 +93,7 @@
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
-.alert-secondary{
-    background-color: #ffff;
-}
+
 
 .warning{
     background-color:#9bbc97;	
@@ -78,10 +111,7 @@
     color: #6D000A;
 }
 
-h1{
-    font-weight:580;
-    color:#7ADF32;
-}
+
 p{
     color:#0b1e08;
     margin: 8px;	
@@ -100,6 +130,18 @@ hr{
 }
 
 .lead{
-color:#000;}
+    color:#000;
+
+}
 
 
+
+.text-white {
+    font-size: 160%;
+}
+
+
+.row.selected {
+    background: rgba(93, 255, 55, 0.16);
+    padding: 4px 0;
+}
