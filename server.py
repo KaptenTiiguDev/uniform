@@ -5,7 +5,7 @@ from random import randint
 import serial #pyserial module required
 import thread
 
-serial_port = "COM5"
+serial_port = "COM4"
 
 
 class BodyPartInjuryDetector:
@@ -42,7 +42,7 @@ def read_sensor_data():
             if line:
                 data = line.replace('\n', ' ').replace('\r', '').split(",", 1)
                 right_arm_bleeding = data[0] == "1"
-                right_arm_removed = data[1] == "1"
+                right_arm_removed = data[1] == "1 "
                 right_arm.update_values(right_arm_bleeding, right_arm_removed)
     except:
         print("Bluetooth not connected on port ", serial_port)
