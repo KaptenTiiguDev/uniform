@@ -1,6 +1,8 @@
 var limbMissing = false;
 var interval = null;
 var limbVisualIndex = false;
+var resetCounter = 2;
+var latestInjury = null;
 function hideInjury() {
     $('.body-spot').hide();
 }
@@ -54,9 +56,21 @@ function updateData() {
         success: function(data) {
 
             if ($.isEmptyObject(data)) {
-                hideInjury();
-                hideAdvice();
-                resetPerson();
+                // Avoid flickering
+                if (latestInjury && resetCounter > 0) {
+                    resetCounter -= 1;
+                } else if (latestInjury && resetCounter <= 0) {
+                    resetCounter = 2;
+                    latestInjury = null;
+                    hideInjury();
+                    hideAdvice();
+                    resetPerson();
+                } else {
+                    hideInjury();
+                    hideAdvice();
+                    resetPerson();
+                }
+
             } else {
                 if (data.inj == 2) {
                     hideInjury();
@@ -67,6 +81,7 @@ function updateData() {
                     resetPerson();
                     showInjury(data);
                 }
+                latestInjury = data.inj;
                 // getAdvice(data);
                 $('#injury-info-text').html(data.advice);
                 $('#injury-info-container').css('display', 'flex'); //show();
