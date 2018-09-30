@@ -66,7 +66,7 @@ def index():
 
 @app.route("/injuries", methods=['GET', 'POST'])
 def get_injuries():
-    return jsonify(right_arm.get_json_values())
+    return jsonify(left_arm.get_json_values())
 
 
 @app.route("/advice/", methods=['GET','POST'])
