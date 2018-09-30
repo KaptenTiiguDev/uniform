@@ -14,9 +14,7 @@
     left: 0;
     z-index: 100;
 }
-body{
-background-color:#ebf1ea;	
-}
+
 .body-spot {
     position: absolute;
     z-index: 200;
@@ -71,17 +69,18 @@ background-color:#ebf1ea;
 }
 
 .alert-success{
-    background-image: linear-gradient(-90deg,#88af82,#d7e4d5);
+    background-color: #2B5021;
+    color: #7ADF32;
 	
 }
 .alert-info{
-    background-color:#74a26d;	
-    color: #ffdb83;
+    background-color:#7ADF32;	
+    color: #6D000A;
 }
 
 h1{
     font-weight:580;
-    color:#050800;
+    color:#7ADF32;
 }
 p{
     color:#0b1e08;
@@ -100,6 +99,7 @@ hr{
     margin: 8px;
 }
 
-
+.lead{
+color:#000;}
 
 
