@@ -25,7 +25,7 @@ class BodyPartInjuryDetector:
                 'inj': 2 if self.is_removed else 1,
                 'advice': 'Put on a tourniquet and evacuate.' if self.is_removed else 'Put a bandage on.'
             }
-        return {}
+        return {'no':'armLeft','inj':1,'advice':'put bad'}
 
 
 right_arm = BodyPartInjuryDetector('armRight')
