@@ -58,3 +58,13 @@
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
+.alert-secondary{
+    background-color:#CBD3BE;
+}
+h1{
+    font-weight:580;
+    color:#050800;
+}
+p{
+    color:#050800;
+}
