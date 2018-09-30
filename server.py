@@ -27,7 +27,7 @@ class BodyPartInjuryDetector:
         return {}
 
 
-right_arm = BodyPartInjuryDetector('rightArm')
+right_arm = BodyPartInjuryDetector('armRight')
 
 
 # reading bluetooth data
