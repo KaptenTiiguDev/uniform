@@ -14,7 +14,9 @@
     left: 0;
     z-index: 100;
 }
-
+body{
+background-color:#ebf1ea;	
+}
 .body-spot {
     position: absolute;
     z-index: 200;
@@ -59,12 +61,45 @@
     margin-bottom: 1.5rem;
 }
 .alert-secondary{
-    background-color:#CBD3BE;
+    background-color: #ffff;
 }
+
+.warning{
+    background-color:#9bbc97;	
+    margin: -8px;
+    border: 8px;
+}
+
+.alert-success{
+    background-image: linear-gradient(-90deg,#88af82,#d7e4d5);
+	
+}
+.alert-info{
+    background-color:#74a26d;	
+    color: #ffdb83;
+}
+
 h1{
     font-weight:580;
     color:#050800;
 }
 p{
-    color:#050800;
+    color:#0b1e08;
+    margin: 8px;	
 }
+.far-normal{
+    color:#149911;
+}
+.far-danger{
+    color:#d63230;
+}
+.far-warn{
+    color:#ffbe1c;
+}
+hr{
+    margin: 8px;
+}
+
+
+
+

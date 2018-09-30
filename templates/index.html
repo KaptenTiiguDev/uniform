@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <link rel="stylesheet" href="../static/bootstrap.min.css">
         <link rel="stylesheet" href="../static/style.css?v={{version}}">
         <title>Bloodsweep</title>
@@ -11,23 +12,32 @@
         <div class="container-fluid m-3">
 
             <div class="row justify-content-center">
-                <div class="col-md-10 pull-center alert alert-secondary">
-                    <h1>B L O O D S W E E P</h1>
+                <div class="col-md-10 pull-center alert alert-success">
+                    <h1 class="font-weight-bold">B L O O D S W E E P</h1>
                 </div>
            </div>
 
             <div class="row justify-content-center">
                 <div class="col-md-4 text-right p-0" style="height:100%;">
                     <div class="col-md-12 alert alert-secondary text-white">
-                        <p class="lead">Sander</p>
-                        <p class="lead">Antonina</p>
-                        <p class="lead" style="background-color:#6F7B5D;">Anatoli</p>
-                        <p class="lead">Ivars</p>
-                        <p class="lead">Kevin</p>
-                        <p class="lead">Hendrik</p>
-                        <p class="lead">Ivo</p>
-                        <p class="lead">Nora</p>
-			<p class="lead">Karlis</p>
+                        <p class="lead">Sander&nbsp;<i class="far fa-check-circle far-normal"></i></p>
+			<hr>
+                        <p class="lead">Antonina&nbsp;<i class="far fa-check-circle far-normal"></i></p>
+			<hr>
+                        <p class="lead warning">Anatoli&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+			<hr>
+                        <p class="lead">Ivars&nbsp;<i class="far fa-check-circle far-normal"></i></p>
+			<hr>
+                        <p class="lead">Kevin&nbsp;<i class="far fa-check-circle far-normal"></i></p>
+			<hr>
+                        <p class="lead">Hendrik&nbsp;<i class="far fa-times-circle far-danger font-weight-bold"></i></p>
+			<hr>
+                        <p class="lead">Ivo&nbsp;<i class="far fa-check-circle far-normal"></i></p>
+			<hr>
+                        <p class="lead">Nora&nbsp;<i class="far fa-check-circle far-normal"></i></p>
+			<hr>
+			<p class="lead">Karlis&nbsp;<i class="far fa-check-circle far-warn"></i></p>
+
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -45,7 +55,7 @@
                         <div class="body-spot" id="body-spot-legRight"></div>
                         <div class="body-spot" id="body-spot-legLeft"></div>
                     </div>
-                    <div class="alert alert-secondary" id="injury-info-container" style="background-color:#6F7B5D;">
+                    <div class="alert alert-info text-center" id="injury-info-container">
                         <p class="lead" id="injury-info-text" style="font-weight: 580;font-size:2em;"></p>
                     </div>
                 </div>
