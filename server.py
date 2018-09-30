@@ -5,7 +5,7 @@ from random import randint
 import serial #pyserial module required
 import thread
 
-serial_port = "COM4"
+serial_port = "/dev/rfcomm2"
 
 right_arm_bleeding = False
 right_arm_removed = False
@@ -63,9 +63,9 @@ def getInjuries():
     injuryType = None
     print(right_arm_bleeding)
     if right_arm_bleeding:
-        injuryType = {"no":"armRight","inj":1, "something": 2}
+        injuryType = {"no":"armLeft","inj":1}
     elif right_arm_removed:
-    	injuryType = {"no":"armRight","inj":2}
+    	injuryType = {"no":"armLeft","inj":2}
     else:
         injuryType = {}
     
