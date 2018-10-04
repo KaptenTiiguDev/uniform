@@ -54,8 +54,9 @@ function updateData() {
         type:"POST",
         url: "http://localhost:5000/injuries",
         success: function(data) {
+            if ($.isEmptyObject(data)) return;
 
-            if ($.isEmptyObject(data)) {
+            if (data.injuryType == 0) {
                 // Avoid flickering
                 if (latestInjury && resetCounter > 0) {
                     resetCounter -= 1;
@@ -76,7 +77,7 @@ function updateData() {
                     resetCounter -= 1;
                 } else {
                     resetCounter = 2;
-                    if (data.inj == 2) {
+                    if (data.injuryType == 2) {
                         hideInjury();
                         if (!interval) {
                             showLeftLimbMissing();
@@ -85,7 +86,7 @@ function updateData() {
                         resetPerson();
                         showInjury(data);
                     }
-                    latestInjury = data.inj;
+                    latestInjury = data.injuryType;
                     // getAdvice(data);
                     $('#injury-info-text').html(data.advice);
                     $('#injury-info-container').css('display', 'flex'); //show();
