@@ -15,7 +15,7 @@
 }
 
 body {
-    font-family: 'HelveticaNeue', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #333;
 
 }
@@ -28,6 +28,7 @@ header {
 }
 
 h1 {
+    font-family: 'Black Ops One', cursive;
     font-size: 4em;
 }
 
@@ -66,6 +67,25 @@ h1 {
     animation-direction: alternate;
 }
 
+.body-spot#body-spot-LARM {
+    position: absolute;
+    z-index: 200;
+    width: 12px;
+    height: 42px;
+    border-radius: 16px;
+    background-color: #c00;
+    box-shadow: 0px 0px 10px #c00;
+    display: none;
+    animation-duration: 0.25s;
+    animation-name: bodyspotblink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform: rotate(-17deg);
+    top: 170px;
+    left: 168px;
+    /*display: block;*/
+}
+
 @keyframes bodyspotblink {
     from {
         background-color: #300;
@@ -76,7 +96,9 @@ h1 {
     }
 }
 
-#injury-info-container {
+#injury-info-container-0,
+#injury-info-container-1,
+#injury-info-container-2 {
     display: none;
 }
 
@@ -85,7 +107,7 @@ h1 {
 #body-spot-stomach  { top: 170px; left: 100px; }
 
 #body-spot-armRight { top: 150px; left: 50px; }
-#body-spot-armLeft  { top: 150px; left: 150px; }
+#body-spot-LARM  { top: 150px; left: 150px; }
 #body-spot-legRight { top: 266px; left: 80px; }
 #body-spot-legLeft  { top: 266px; left: 120px; }
 
@@ -107,8 +129,8 @@ h1 {
 	
 }
 .alert-info{
-    background-color:#7ADF32;	
-    color: #6D000A;
+    background-color:#4b5320;	
+    color: #fff;
 }
 
 
@@ -142,6 +164,6 @@ hr{
 
 
 .row.selected {
-    background: rgba(93, 255, 55, 0.16);
+    background: #4b5320;
     padding: 4px 0;
 }

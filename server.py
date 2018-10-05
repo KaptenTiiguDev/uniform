@@ -15,14 +15,17 @@ class InjuryType:
     ALL_OK = 0
     BLEEDING = 1
     LIMB_MISSING = 2
+    ALL_OK_TEXT = ''
+    BLEEDING_TEXT = 'Verejooks'
+    LIMB_MISSING_TEXT = 'Jäseme eemaldumine'
 
 
 class BodyPart:
     id = None
     instructions = {
         InjuryType.ALL_OK: '',
-        InjuryType.BLEEDING: 'Aseta side haava peale.',
-        InjuryType.LIMB_MISSING: 'Aseta peale žgutt ja evakueeri.'
+        InjuryType.BLEEDING: ['Aseta side haava peale!'],
+        InjuryType.LIMB_MISSING: ['Aseta peale žgutt.', 'Evakueeri.']
     }
 
     @classmethod
@@ -49,20 +52,21 @@ class BodyPartInjuryDetector:
         self.is_removed = is_removed
 
     def get_json_values(self):
-        injury = self.get_injury_type()
+        injury_type, injury_text = self.get_injury_type()
         return {
             'bodyPart': self.body_part.id,
-            'injuryType': injury,
-            'instruction': self.body_part.get_instruction(injury)
+            'injury': injury_text,
+            'injuryType': injury_type,
+            'instructions': self.body_part.get_instruction(injury_type)
         }
 
-    def get_injury_type(self):
+    def get_injury(self):
         if self.is_removed:
-            return InjuryType.LIMB_MISSING
+            return InjuryType.LIMB_MISSING, InjuryType.LIMB_MISSING_TEXT
         elif self.is_bleeding:
-            return InjuryType.BLEEDING
+            return InjuryType.BLEEDING, InjuryType.BLEEDING_TEXT
         else:
-            return InjuryType.ALL_OK
+            return InjuryType.ALL_OK, InjuryType.ALL_OK_TEXT
 
 
 right_arm = BodyPartInjuryDetector(RightArm)

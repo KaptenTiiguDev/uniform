@@ -3,9 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/bootstrap.min.css">
     <link rel="stylesheet" href="../static/style.css?v={{version}}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Black+Ops+One" rel="stylesheet">
     <title>Bloodsweep</title>
 </head>
 <body>
@@ -21,57 +22,39 @@
     <div class="row justify-content-center">
             <div class="col-md-4 alert text-white">
                 <div class="row">
-                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-                    <div class="col-md-2 pull-right"></div>
-                    <div class="col-md-8 pull-left lead">Sander</div>
+                    <div class="col-md-12 pull-left lead">Sander</div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-                    <div class="col-md-2 pull-right"></div>
-                    <div class="col-md-8 pull-left lead">Antonina</div>
+                    <div class="col-md-12 pull-left lead">Antonina</div>
                 </div>
                 <hr>
                 <div class="row selected">
-                    <div class="col-md-2 pull-right"></div>
-                    <div class="col-md-2 pull-right"></div>
-                    <div class="col-md-8 pull-left lead">Anatoli</div>
+                    <div class="col-md-12 pull-left lead">Anatoli</div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-                    <div class="col-md-2 pull-right"></div>
-                    <div class="col-md-8 pull-left lead">Ivars</div>
+                    <div class="col-md-12 pull-left lead">Ivars</div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-                    <div class="col-md-2 pull-right"></div>
-                    <div class="col-md-8 pull-left lead">Kevin</div>
+                    <div class="col-md-12 pull-left lead">Kevin</div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-                    <div class="col-md-2 pull-right"></div>
-                    <div class="col-md-8 pull-left lead">Hendrik</div>
+                    <div class="col-md-12 pull-left lead">Hendrik</div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-                    <div class="col-md-2 pull-right"></div>
-                    <div class="col-md-8 pull-left lead">Ivo</div>
+                    <div class="col-md-12 pull-left lead">Ivo</div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-                    <div class="col-md-2 pull-right"></div>
-                    <div class="col-md-8 pull-left lead">Nora</div>
+                    <div class="col-md-12 pull-left lead">Nora</div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-2 pull-right"><i class="far fa-check-circle far-normal"></i></div>
-                    <div class="col-md-2 pull-right"></div>
-                    <div class="col-md-8 pull-left lead">Karlis</div>
+                    <div class="col-md-12 pull-left lead">Karlis</div>
                 </div>
 
             </div>
@@ -85,13 +68,32 @@
                 <div class="body-spot" id="body-spot-stomach"></div>
 
                 <div class="body-spot" id="body-spot-armRight"></div>
-                <div class="body-spot" id="body-spot-armLeft"></div>
+                <div class="body-spot" id="body-spot-LARM"></div>
 
                 <div class="body-spot" id="body-spot-legRight"></div>
                 <div class="body-spot" id="body-spot-legLeft"></div>
             </div>
-            <div class="alert alert-info text-center" id="injury-info-container">
-                <p class="lead" id="injury-info-text" style="font-weight: 580;font-size:2em;"></p>
+<div class="alert alert-info" style="
+    background: #fff;
+    border: 2px solid red;
+    text-align: left;
+    color: #000;
+    font-size: 20px;
+    margin-bottom: 4px;
+">
+                <i class="fas fa-exclamation-triangle" style=" color: red; margin-right: 40px;"></i><span id="injury-text"></span>
+            </div>
+            <div class="alert alert-info" id="injury-info-container-0" style="border: none;margin-bottom: 4px;">
+                <i class="fas fa-heartbeat" style="color: #fff;margin-right: 40px;font-size: 20px;padding-top: 6px;padding-left: 3px;"></i>
+                <span class="lead" id="injury-info-text-0" style="font-size:20px;color:#fff;"></span>
+            </div>
+            <div class="alert alert-info" id="injury-info-container-1" style="border: none;margin-bottom: 4px;">
+                <i class="fas fa-heartbeat" style="color: #fff;margin-right: 40px;font-size: 20px;padding-top: 6px;padding-left: 3px;"></i>
+                <span class="lead" id="injury-info-text-1" style="font-size:20px;color:#fff;"></span>
+            </div>
+            <div class="alert alert-info" id="injury-info-container-2" style="border: none;margin-bottom: 4px;">
+                <i class="fas fa-heartbeat" style="color: #fff;margin-right: 40px;font-size: 20px;padding-top: 6px;padding-left: 3px;"></i>
+                <span class="lead" id="injury-info-text-2" style="font-size:20px;color:#fff;"></span>
             </div>
         </div>
     </div>

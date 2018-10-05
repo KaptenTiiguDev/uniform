@@ -8,20 +8,24 @@ function hideInjury() {
 }
 
 function hideAdvice() {
-    $('#injury-info-text').html('');
-    $('#injury-info-container').hide();
+    $('#injury-info-text-0').html('');
+    $('#injury-info-container-0').hide();
+    $('#injury-info-text-1').html('');
+    $('#injury-info-container-1').hide();
+    $('#injury-info-text-2').html('');
+    $('#injury-info-container-2').hide();
 }
 
 function showInjury(data) {
-    $('#body-spot-' + data.no).show();
+    $('#body-spot-' + data.bodyPart).show();
 }
 
 function showLeftLimbMissing() {
     interval = setInterval(function() {
         limbVisualIndex = !limbVisualIndex;
-        var imgUrl = !limbVisualIndex ? "../static/body_red_hand.png" : "../static/body_nohand.png";
+        var imgUrl = !limbVisualIndex ? "../static/body_red_hand_v2.png" : "../static/body_red_hand_removed_v2.png";
         $("#body-figure").attr("src",imgUrl);
-    }, 400);
+    }, 500);
 }
 
 function resetPerson() {
@@ -101,10 +105,29 @@ function updateData() {
 
 }
 
+var data = {
+            'bodyPart': 'LARM',
+            'injury': 'Jäseme eemaldumine',
+            'injuryType': 2,
+            'instructions': ['Aseta käele peale žgutt.', 'Ava hingamisteed.', 'Evakueeri.']
+};
+                    latestInjury = data.injuryType;
+                    // getAdvice(data);
+                    $('#injury-text').html(data.injury);
+                    for (let i=0; i<data.instructions.length; i++) {
+                        $('#injury-info-text-' + i).html(data.instructions[i]);
+                        $('#injury-info-container-' + i).css('display', 'flex');
+                    }
+                    //$('#injury-info-text').html(data.instruction);
+                    //$('#injury-info-container').css('display', 'flex'); //show();
+                    activeInjury = data.bodyPart;
+                    //showInjury(data);
+                    showLeftLimbMissing();
+
 $(document).ready(function(){
 
     setInterval(function(){
         updateData();
-    }, 200)
+    }, 20000)
 
 });
