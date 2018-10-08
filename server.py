@@ -8,7 +8,7 @@ from random import randint
 import serial
 import thread
 
-serial_port = "/dev/rfcomm2"
+serial_port = "/dev/tty.HC-05-DevB"
 
 
 class InjuryType:
@@ -30,7 +30,7 @@ class BodyPart:
 
     @classmethod
     def get_instruction(cls, injury_type):
-        return cls.instructions.get(injury_type)
+        return cls.instructions.get(injury_type, [])
 
 
 class LeftArm(BodyPart):
@@ -52,7 +52,7 @@ class BodyPartInjuryDetector:
         self.is_removed = is_removed
 
     def get_json_values(self):
-        injury_type, injury_text = self.get_injury_type()
+        injury_type, injury_text = self.get_injury()
         return {
             'bodyPart': self.body_part.id,
             'injury': injury_text,
@@ -81,13 +81,16 @@ def read_sensor_data():
         while True:
             line = serial_connection.readline()
             if line:
-                data = line.replace('\n', ' ').replace('\r', '').split(",", 1)
-                right_arm_bleeding = data[0] == "1"
-                right_arm_removed = data[1] == "1 "
-                left_arm.update_values(right_arm_bleeding, right_arm_removed)
-                right_arm.update_values(right_arm_bleeding, right_arm_removed)
-    except Exception:
-        print("Bluetooth not connected on port ", serial_port)
+                try:
+                    data = line.replace('\n', '').replace('\r', '').split(",")
+                    bleeding = data[0] == "1"
+                    missing = data[1] == "1"
+                    left_arm.update_values(bleeding, missing)
+                    right_arm.update_values(bleeding, missing)
+                except Exception as e:
+                    print('Parsing bluetooth data failed', e)
+    except Exception as e:
+        print("Bluetooth error", e)
 
 
 try:

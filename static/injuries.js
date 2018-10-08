@@ -55,8 +55,8 @@ function getAdvice(data) {
 function updateData() {
 
     $.ajax({
-        type:"POST",
-        url: "http://localhost:5000/injuries",
+        type:"GET",
+        url: "http://127.0.0.1:5000/injuries",
         success: function(data) {
             if ($.isEmptyObject(data)) return;
 
@@ -64,6 +64,7 @@ function updateData() {
                 // Avoid flickering
                 if (latestInjury && resetCounter > 0) {
                     resetCounter -= 1;
+                    return;
                 } else if (latestInjury && resetCounter <= 0) {
                     resetCounter = 2;
                     latestInjury = null;
@@ -75,12 +76,16 @@ function updateData() {
                     hideAdvice();
                     resetPerson();
                 }
+                $('#injury-text-container').hide();
 
             } else {
                 if (!latestInjury && resetCounter > 0) {
                     resetCounter -= 1;
                 } else {
                     resetCounter = 2;
+                    if (latestInjury != data.injuryType) {
+                        hideAdvice();
+                    }
                     if (data.injuryType == 2) {
                         hideInjury();
                         if (!interval) {
@@ -90,11 +95,14 @@ function updateData() {
                         resetPerson();
                         showInjury(data);
                     }
+                    $('#injury-text').html(data.injury);
+                    $('#injury-text-container').css('display', 'flex');
                     latestInjury = data.injuryType;
-                    // getAdvice(data);
-                    $('#injury-info-text').html(data.advice);
-                    $('#injury-info-container').css('display', 'flex'); //show();
-                    activeInjury = data.no;
+                    for (let i=0; i<data.instructions.length; i++) {
+                        $('#injury-info-text-' + i).html(data.instructions[i]);
+                        $('#injury-info-container-' + i).css('display', 'flex');
+                    }
+                    activeInjury = data.bodyPart;
                 }
             }
         },
@@ -105,7 +113,7 @@ function updateData() {
 
 }
 
-var data = {
+/*var data = {
             'bodyPart': 'LARM',
             'injury': 'Jäseme eemaldumine',
             'injuryType': 2,
@@ -121,13 +129,13 @@ var data = {
                     //$('#injury-info-text').html(data.instruction);
                     //$('#injury-info-container').css('display', 'flex'); //show();
                     activeInjury = data.bodyPart;
-                    //showInjury(data);
-                    showLeftLimbMissing();
-
+                    showInjury(data);
+                    //qqqshowLeftLimbMissing();
+*/
 $(document).ready(function(){
 
     setInterval(function(){
         updateData();
-    }, 20000)
+    }, 300)
 
 });

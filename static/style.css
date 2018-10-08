@@ -67,7 +67,7 @@ h1 {
     animation-direction: alternate;
 }
 
-.body-spot#body-spot-LARM {
+.body-spot#body-spot-leftArm {
     position: absolute;
     z-index: 200;
     width: 12px;
@@ -107,7 +107,7 @@ h1 {
 #body-spot-stomach  { top: 170px; left: 100px; }
 
 #body-spot-armRight { top: 150px; left: 50px; }
-#body-spot-LARM  { top: 150px; left: 150px; }
+#body-spot-leftArm  { top: 150px; left: 150px; }
 #body-spot-legRight { top: 266px; left: 80px; }
 #body-spot-legLeft  { top: 266px; left: 120px; }
 
