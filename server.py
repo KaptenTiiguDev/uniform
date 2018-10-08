@@ -17,7 +17,7 @@ class InjuryType:
     LIMB_MISSING = 2
     ALL_OK_TEXT = ''
     BLEEDING_TEXT = 'Verejooks'
-    LIMB_MISSING_TEXT = 'Jäseme eemaldumine'
+    LIMB_MISSING_TEXT = 'Jäseme eemaldunud'
 
 
 class BodyPart:

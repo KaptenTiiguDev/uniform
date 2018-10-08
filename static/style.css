@@ -39,7 +39,6 @@ h1 {
     width: 235px;
     height: 414px;
     margin-left: auto;
-    margin-right: auto;
 }
 
 #body-figure {
@@ -71,7 +70,7 @@ h1 {
     position: absolute;
     z-index: 200;
     width: 12px;
-    height: 42px;
+    height: 22px;
     border-radius: 16px;
     background-color: #c00;
     box-shadow: 0px 0px 10px #c00;
@@ -81,8 +80,8 @@ h1 {
     animation-iteration-count: infinite;
     animation-direction: alternate;
     transform: rotate(-17deg);
-    top: 170px;
-    left: 168px;
+    top: 185px;
+    left: 169px;
     /*display: block;*/
 }
 
@@ -165,5 +164,6 @@ hr{
 
 .row.selected {
     background: #4b5320;
+    color: #fff;
     padding: 4px 0;
 }
