@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, request, jsonify
-import json
+from flask import Flask, render_template, jsonify
 from random import randint
 
 import serial
@@ -17,7 +16,7 @@ class InjuryType:
     LIMB_MISSING = 2
     ALL_OK_TEXT = ''
     BLEEDING_TEXT = 'Verejooks'
-    LIMB_MISSING_TEXT = 'Jäseme eemaldunud'
+    LIMB_MISSING_TEXT = 'Eemaldunud jäse'
 
 
 class BodyPart:
