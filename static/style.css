@@ -52,7 +52,7 @@ h1 {
 
 .body-spot {
     position: absolute;
-    z-index: 200;
+    z-index: 1000;
     width: 32px;
     height: 32px;
     border-radius: 16px;
@@ -68,7 +68,7 @@ h1 {
 
 .body-spot#body-spot-leftArm {
     position: absolute;
-    z-index: 200;
+    z-index: 1000;
     width: 12px;
     height: 22px;
     border-radius: 16px;
@@ -166,4 +166,36 @@ hr{
     background: #4b5320;
     color: #fff;
     padding: 4px 0;
+}
+
+.right-arm-normal {
+    position: absolute;
+    z-index: 700;
+    width: 49px;
+    left: 30px;
+    top: 160px;
+}
+
+.right-arm-gone {
+    position: absolute;
+    z-index: 700;
+    width: 51px;
+    left: 28px;
+    top: 160px;
+}
+
+.left-arm-normal {
+    position: absolute;
+    z-index: 700;
+    width: 49px;
+    left: 154px;
+    top: 160px;
+}
+
+.left-arm-gone {
+    position: absolute;
+    z-index: 700;
+    width: 51px;
+    left: 154px;
+    top: 160px;
 }

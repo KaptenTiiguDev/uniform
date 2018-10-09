@@ -22,9 +22,9 @@ class InjuryType:
 class BodyPart:
     id = None
     instructions = {
-        InjuryType.ALL_OK: '',
-        InjuryType.BLEEDING: ['Aseta side haava peale!'],
-        InjuryType.LIMB_MISSING: ['Aseta peale žgutt.', 'Evakueeri.']
+        InjuryType.ALL_OK: [],
+        InjuryType.BLEEDING: ['Aseta haava peale side!'],
+        InjuryType.LIMB_MISSING: ['Aseta peale žgutt.']
     }
 
     @classmethod
@@ -83,9 +83,10 @@ def read_sensor_data():
                 try:
                     data = line.replace('\n', '').replace('\r', '').split(",")
                     bleeding = data[0] == "1"
-                    missing = data[1] == "1"
-                    left_arm.update_values(bleeding, missing)
-                    right_arm.update_values(bleeding, missing)
+                    left_missing = data[1] == "1"
+                    right_missing = data[2] == "1"
+                    left_arm.update_values(bleeding, left_missing)
+                    right_arm.update_values(False, right_missing)
                 except Exception as e:
                     print('Parsing bluetooth data failed', e)
     except Exception as e:
@@ -109,7 +110,8 @@ def index():
 
 @app.route("/injuries", methods=['GET', 'POST'])
 def get_injuries():
-    return jsonify(left_arm.get_json_values())
+    # return jsonify(left_arm.get_json_values())
+    return jsonify([left_arm.get_json_values(), right_arm.get_json_values()])
 
 
 if __name__ == "__main__":
